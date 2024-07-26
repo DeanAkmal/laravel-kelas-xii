@@ -57,7 +57,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($perans as $peran)
+                        @foreach ($perans as $key => $value)
                         <tr>
                           <td class="w3-list-info">{{ $peran->cast()->first()->name }}</td>
                           <td class="w3-list-info">{{ $peran->actor }}</td>
@@ -72,6 +72,7 @@
             <div class="clearfix"> </div>
           </div>
         </div>
+        
         <div class="song-grid-right">
           <div class="share">
             <h5>Share this</h5>
