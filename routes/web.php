@@ -12,4 +12,8 @@ Route::get('/movies/{film}', [FilmController::class, 'show'])->name('movies.show
 Route::get('/movies/genre/{genre}', [FilmController::class, 'moviesByGenre'])->name('genre');
 Route::get('/movies/{film}', [FilmController::class, 'show'])->name('movies.show');
 Route::get('perans/index', [PeranController::class, 'index'])->name('perans.index');
+Route::post('perans/store', [PeranController::class, 'store'])->name('perans.store');
+Route::get('perans/create', [PeranController::class, 'create'])->name('perans.create');
+
+
 

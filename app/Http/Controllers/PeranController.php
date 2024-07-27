@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Peran;
+use Illuminate\Http\Request;
 use App\Http\Requests\StorePeranRequest;
 use App\Http\Requests\UpdatePeranRequest;
+use App\Http\Controllers\Controller;
 
 class PeranController extends Controller
 {
@@ -13,14 +15,17 @@ class PeranController extends Controller
      */
     public function index()
     {
-        //
+       
+        return view('perans.index');
     }
-
+    
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
+        $perans = Peran::all();
+        return view('perans.create', compact('perans'));
         //
     }
 

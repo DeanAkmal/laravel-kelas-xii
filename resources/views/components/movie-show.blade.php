@@ -46,28 +46,33 @@
                 <p class="author"><a href="#" class="author">{{ $film->year }}</a></p>
                 <p class="views">{{ $film->sinopsis }}</p>
               </div>
-              <div id="myTabContent" class="tab-content">
-                <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
-                  <div class="agile-news-table">
-                    <table id="table-breakpoint">
-                      <thead>
-                        <tr>
-                        <th>Cast</th>
-                        <th>Peran</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        @foreach ($perans as $key => $value)
-                        <tr>
-                          <td class="w3-list-info">{{ $peran->cast()->first()->name }}</td>
-                          <td class="w3-list-info">{{ $peran->actor }}</td>
-                        </tr>
-                        @endforeach
-                      </tbody>
-                    </table>
+              <form action="{{ route('perans.create') }}" method="GET">
+                @csrf
+                <div id="myTabContent" class="tab-content">
+                  <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+                    <div class="agile-news-table">
+                      <table id="table-breakpoint">
+                        <thead>
+                          <tr>
+                            <th>Cast</th>
+                            <th>Peran</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @foreach ($perans as $key => $value)
+                          <tr>
+                            <td class="w3-list-info">{{ $value->cast_id }}</td>
+                            <td class="w3-list-info">{{ $value->actor }}</td>
+                            <td><button type="submit" class="btn btn-primary">Create</button></td>
+                          </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </form>              
             </div>
             <div class="clearfix"> </div>
           </div>
