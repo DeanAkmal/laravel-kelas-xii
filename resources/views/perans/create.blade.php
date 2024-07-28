@@ -19,19 +19,32 @@
 @endpush
 
 @section('content')
-    <div class="container">
-        <h1>Create a New Peran</h1>
-        <form action="{{ route('perans.store') }}" method="POST">
+<div class="container">
+  <h1>Create a New Peran</h1>
+  <form action="{{ route('perans.store') }}" method="POST">
             @csrf
+            @method('POST')
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <select class="form-control" id="cast" name="cast_id">
+                @foreach($casts as $key => $value)
+                    <option value="{{ $value->id}}">{{ $value->name}}</option>
+                @endforeach 
+            </select>
+          </div>
             <!-- Example of using $perans -->
             <div class="form-group">
                 <label for="peran">Peran:</label>
-                <select class="form-control" id="peran" name="peran_id">
-                    @foreach($perans as $key => $value)
-                        <option value="{{ $value->id }}">{{ $value->actor }}</option>
-                    @endforeach 
-                </select>
+                <input type="text" name="peran" id="name">
             </div>
+            <div class="form-group">
+              <label for="peran">Title:</label>
+              <select class="form-control" id="film" name="film_id">
+                  @foreach($films as $key => $value)
+                      <option value="{{ $value->id }}">{{ $value->title }}</option>
+                  @endforeach 
+              </select>
+          </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

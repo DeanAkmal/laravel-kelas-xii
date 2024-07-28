@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Film;
+use App\Models\Cast;
 use App\Models\Peran;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePeranRequest;
@@ -16,7 +18,6 @@ class PeranController extends Controller
     public function index()
     {
        
-        return view('perans.index');
     }
     
     /**
@@ -24,17 +25,34 @@ class PeranController extends Controller
      */
     public function create()
     {
+        $casts  = Cast::all();
         $perans = Peran::all();
-        return view('perans.create', compact('perans'));
+        $films =  Film::all();
+        return view('perans.create', compact('perans', 'casts', 'films'));
         //
     }
 
     /**
      * Store a newly created resource in storage.
-     */
+     */ 
     public function store(StorePeranRequest $request)
     {
-        //
+       
+        
+
+            $peran = new Peran([
+                'actor' => $request['peran'],
+                'cast_id' => $request['cast_id'],
+                'film_id' => $request['film_id']
+            ]);
+
+            $peran->save();
+        
+            // Redirect to a relevant page with a success message
+            return redirect()->route('movies.show', ['film'=> $peran->film_id])->with('success', 'Peran created successfully.');
+        
+            
+        
     }
 
     /**

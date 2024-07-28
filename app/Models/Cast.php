@@ -12,4 +12,8 @@ class Cast extends Model
     protected $table = 'casts';
     protected $fillable = ['name','age', 'bio'];
 
+    public function cast(){
+        return $this->belongsTo(Cast::class);
+    }
 }
+

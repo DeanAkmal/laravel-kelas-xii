@@ -11,7 +11,7 @@ class StorePeranRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class StorePeranRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'peran' => 'required',
+            'film_id' => 'required',
+            'cast_id' => 'required'
         ];
     }
 }
