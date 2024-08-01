@@ -1,10 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FilmController;
 use App\Http\Controllers\PeranController;
-<<<<<<< HEAD
-=======
-
->>>>>>> ee89684 (menambahkan fitur edit peran ke dalam laman movies)
+use App\Http\Controllers\SearchController;
 
 // routes/web.php
 Route::get('/search', [SearchController::class, 'search'])->name('film.search');
