@@ -68,6 +68,7 @@
                             <td class="w3-list-info">{{ $peran->cast_id }}</td>
                             <td class="w3-list-info">{{ $peran->actor }}</td>
                             <td class="w3-list-info">
+                              <a href="{{ route('peran.create',$peran->id) }}" class="btn btn-warning btn-sm">CREATE</a>
                               <a href="{{ route('peran.edit', $peran->id) }}" class="btn btn-warning btn-sm">EDIT</a>
                             </td>
                           </tr>

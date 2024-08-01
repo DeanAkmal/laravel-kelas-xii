@@ -15,22 +15,26 @@ class PeranController extends Controller
         return view('peran.index', compact('perans', 'filmId'));
     }
 
-    public function create($filmId)
+    public function create()
     {
-        $casts = Cast::all();
-        return view('peran.create', compact('casts', 'filmId'));
+        $casts  = Cast::all();
+        $perans = Peran::all();
+        $films =  Film::all();
+        return view('peran.create', compact('perans', 'casts', 'films'));
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'film_id' => 'required|exists:films,id',
-            'cast_id' => 'required|exists:casts,id',
-            'actor' => 'required|string|max:255',
+        $peran = new Peran([
+            'actor' => $request['peran'],
+            'cast_id' => $request['cast_id'],
+            'film_id' => $request['film_id']
         ]);
 
-        Peran::create($request->all());
-        return redirect()->route('peran.index', ['filmId' => $request->film_id]);
+        $peran->save();
+
+        // Redirect to a relevant page with a success message
+        return redirect()->route('movies.show', ['film'=> $peran->film_id])->with('success', 'Peran created successfully.');
     }
 
     public function edit(Peran $peran)

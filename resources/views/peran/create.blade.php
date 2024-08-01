@@ -21,7 +21,7 @@
 @section('content')
 <div class="container">
   <h1>Create a New Peran</h1>
-  <form action="{{ route('perans.store') }}" method="POST">
+  <form action="{{ route('peran.store') }}" method="POST">
             @csrf
             @method('POST')
             <div class="form-group">
