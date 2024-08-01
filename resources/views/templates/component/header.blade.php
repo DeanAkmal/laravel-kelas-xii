@@ -7,7 +7,8 @@
         </div>
         <div class="w3_search">
             <form action="{{ route('film.search') }}" method="get">
-                <input type="text" name="search" placeholder="Search" required="">
+                <input type="text" name="search" placeholder="Search" value="{{ request()->input('search') }}"
+                    required>
                 <input type="submit" value="Go">
             </form>
         </div>
