@@ -38,7 +38,7 @@
                 </a>
                 <div class="mid-1">
                   <div class="w3l-movie-text">
-                    <h6><a href="{{ route('movies.show', $films[$data]->id) }}">{{ $films[$data]->title }}</a></h6>							
+                    <h6><a href="{{ route('movies.show', $films[$data]->id) }}">{{ $films[$data]->title }}</a></h6>
                   </div>
                   <div class="mid-2">
                     <p>{{ $films[$data]->year }}</p>
@@ -49,8 +49,8 @@
                           <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                           <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
                           <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                            
-                  
+
+
                       </ul>
                     </div>
                     <div class="clearfix"></div>
@@ -109,7 +109,7 @@
           </div>
         </div>
     <!-- //movie-browse-agile -->
-    </div>	
+    </div>
   </div>
 <!-- //w3l-medile-movies-grids -->
 </div>

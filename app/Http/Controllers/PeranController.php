@@ -2,88 +2,58 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Film;
-use App\Models\Cast;
 use App\Models\Peran;
+use App\Models\Cast;
+use App\Models\Film;
 use Illuminate\Http\Request;
-use App\Http\Requests\StorePeranRequest;
-use App\Http\Requests\UpdatePeranRequest;
-use App\Http\Controllers\Controller;
 
 class PeranController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index($filmId)
     {
-       
-    }
-    
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        $casts  = Cast::all();
-        $perans = Peran::all();
-        $films =  Film::all();
-        return view('perans.create', compact('perans', 'casts', 'films'));
-        //
+        $perans = Peran::where('film_id', $filmId)->get();
+        return view('peran.index', compact('perans', 'filmId'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */ 
-    public function store(StorePeranRequest $request)
+    public function create($filmId)
     {
-       
-        
-
-            $peran = new Peran([
-                'actor' => $request['peran'],
-                'cast_id' => $request['cast_id'],
-                'film_id' => $request['film_id']
-            ]);
-
-            $peran->save();
-        
-            // Redirect to a relevant page with a success message
-            return redirect()->route('movies.show', ['film'=> $peran->film_id])->with('success', 'Peran created successfully.');
-        
-            
-        
+        $casts = Cast::all();
+        return view('peran.create', compact('casts', 'filmId'));
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Peran $peran)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'film_id' => 'required|exists:films,id',
+            'cast_id' => 'required|exists:casts,id',
+            'actor' => 'required|string|max:255',
+        ]);
+
+        Peran::create($request->all());
+        return redirect()->route('peran.index', ['filmId' => $request->film_id]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Peran $peran)
     {
-        //
+        $casts = Cast::all();
+        $films = Film::all();
+        return view('peran.edit', compact('peran', 'casts', 'films'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdatePeranRequest $request, Peran $peran)
+
+    public function update(Request $request, Peran $peran)
     {
-        //
+        $request->validate([
+            'cast_id' => 'required|exists:casts,id',
+            'actor' => 'required|string|max:255',
+        ]);
+
+        $peran->update($request->all());
+        return redirect()->route('peran.index', ['filmId' => $peran->film_id]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Peran $peran)
     {
-        //
+    
     }
 }

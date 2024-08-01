@@ -4,6 +4,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="keywords" content="{{ env('APP_NAME', 'REPAL MOVIE') }}" />
+
+  <link rel="icon" href="{{ asset('storage/icon/hfz.jpg') }}" type="image/x-icon">
+
+
   <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
       function hideURLbar(){ window.scrollTo(0,1); } </script>
   <!-- //for-mobile-apps -->
@@ -31,7 +35,7 @@
   <script type="text/javascript" src="{{ asset('template/js/easing.js') }}"></script>
   <script type="text/javascript">
     jQuery(document).ready(function($) {
-      $(".scroll").click(function(event){		
+      $(".scroll").click(function(event){
         event.preventDefault();
         $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
       });
@@ -41,19 +45,19 @@
   <link href="{{ asset('template/css/owl.carousel.css') }}" rel="stylesheet" type="text/css" media="all">
   <script src="{{ asset('template/js/owl.carousel.js') }}"></script>
   <script>
-    $(document).ready(function() { 
+    $(document).ready(function() {
       $("#owl-demo").owlCarousel({
-     
+
         autoPlay: 3000, //Set AutoPlay to 3 seconds
-     
+
         items : 5,
         itemsDesktop : [640,5],
         itemsDesktopSmall : [414,4]
-     
+
       });
-     
-    }); 
-  </script> 
+
+    });
+  </script>
 
   @stack('style')
   </head>

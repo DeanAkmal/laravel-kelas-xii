@@ -16,7 +16,7 @@
         <p class='description'>{{ $film->sinopsis }}</p>
       </li>
     @endforeach
-  </ul>   	
+  </ul>
   </div>
   <script src="{{ asset('template/js/jquery.slidey.js') }}"></script>
   <script src="{{ asset('template/js/jquery.dotdotdot.min.js') }}"></script>
@@ -45,7 +45,7 @@
               </a>
               <div class="mid-1">
                 <div class="w3l-movie-text">
-                  <h6><a href="{{ route('movies.show', $films[$data]->id) }}">{{ $films[$data]->title }}</a></h6>							
+                  <h6><a href="{{ route('movies.show', $films[$data]->id) }}">{{ $films[$data]->title }}</a></h6>
                 </div>
                 <div class="mid-2">
                   <p>{{ $films[$data]->year }}</p>
@@ -56,8 +56,8 @@
                         <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                          
-                
+
+
                     </ul>
                   </div>
                   <div class="clearfix"></div>
@@ -72,7 +72,7 @@
           </div>
         @endfor
       </div>
-    </div>			
+    </div>
   </div>
 </div>
 <!-- //banner-bottom -->
@@ -82,7 +82,7 @@
     <li class="w3_twitter"><a href="#">Twitter <i class="fa fa-twitter"></i></a></li>
     <li class="w3_facebook"><a href="#">Facebook <i class="fa fa-facebook"></i></a></li>
     <li class="w3_dribbble"><a href="#">Dribbble <i class="fa fa-dribbble"></i></a></li>
-    <li class="w3_g_plus"><a href="#">Google+ <i class="fa fa-google-plus"></i></a></li>				  
+    <li class="w3_g_plus"><a href="#">Google+ <i class="fa fa-google-plus"></i></a></li>
   </ul>
 </nav>
 </div>
@@ -107,7 +107,7 @@
                 </a>
                 <div class="mid-1">
                   <div class="w3l-movie-text">
-                    <h6><a href="{{ route('movies.show', $filmFutured[$data]->id) }}">{{ $filmFutured[$data]->title }}</a></h6>							
+                    <h6><a href="{{ route('movies.show', $filmFutured[$data]->id) }}">{{ $filmFutured[$data]->title }}</a></h6>
                   </div>
                   <div class="mid-2">
                     <p>{{ $filmFutured[$data]->year }}</p>
@@ -118,8 +118,8 @@
                           <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                           <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
                           <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                            
-                  
+
+
                       </ul>
                     </div>
                     <div class="clearfix"></div>
@@ -146,7 +146,7 @@
                 </a>
                 <div class="mid-1">
                   <div class="w3l-movie-text">
-                    <h6><a href="{{ route('movies.show', $filmRecentAdded[$data]->id) }}">{{ $filmRecentAdded[$data]->title }}</a></h6>							
+                    <h6><a href="{{ route('movies.show', $filmRecentAdded[$data]->id) }}">{{ $filmRecentAdded[$data]->title }}</a></h6>
                   </div>
                   <div class="mid-2">
                     <p>{{ $filmRecentAdded[$data]->year }}</p>
@@ -157,8 +157,8 @@
                           <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                           <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
                           <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                            
-                  
+
+
                       </ul>
                     </div>
                     <div class="clearfix"></div>
@@ -185,7 +185,7 @@
 <script type="text/javascript" src="{{ asset('template/js/easing.js') }}"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
+		$(".scroll").click(function(event){
 			event.preventDefault();
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 		});
@@ -194,17 +194,17 @@
 <!-- start-smoth-scrolling -->
 <script src="{{ asset('template/js/owl.carousel.js') }}"></script>
 <script>
-	$(document).ready(function() { 
+	$(document).ready(function() {
 		$("#owl-demo").owlCarousel({
-	 
+
 		  autoPlay: 3000, //Set AutoPlay to 3 seconds
-	 
+
 		  items : 5,
 		  itemsDesktop : [640,5],
 		  itemsDesktopSmall : [414,4]
-	 
+
 		});
-	 
-	}); 
-</script> 
+
+	});
+</script>
 @endpush
