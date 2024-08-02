@@ -58,7 +58,7 @@ class PeranController extends Controller
 
     public function destroy(Peran $peran)
     {
-    $filmId = $peran->film_id;
+        $filmId = $peran->film_id;
         $peran->delete();
         return redirect()->route('peran.index', ['filmId' => $filmId])->with('success', 'Peran berhasil dihapus.');
     }

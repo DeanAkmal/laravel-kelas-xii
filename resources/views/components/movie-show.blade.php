@@ -21,8 +21,7 @@
 
 <div class="container">
   <br />
-  <!-- /w3l-medile-movies-grids -->
-    <div class="agileits-single-top">
+  <div class="agileits-single-top">
       <ol class="breadcrumb">
         <li><a href="{{ route('home') }}">Home</a></li>
         <li><a href="{{ route('movies') }}">Movies</a></li>
@@ -30,7 +29,6 @@
       </ol>
     </div>
     <div class="single-page-agile-info">
-      <!-- /movie-browse-agile -->
       <div class="show-top-grids-w3lagile">
         <div class="col-sm-8 single-left">
           <div class="song">
@@ -59,31 +57,38 @@
                           <tr>
                             <th>Actor</th>
                             <th>Peran</th>
-                            <th>Actions</th> <!-- Tambahkan kolom Actions -->
+                            <th>Actions</th>
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach ($perans as $peran)
+                          @forelse ($perans as $peran)
                           <tr>
-                            <td class="w3-list-info">{{ $peran->cast_id }}</td>
+                            <td class="w3-list-info">{{ $peran->cast->name }}</td>
                             <td class="w3-list-info">{{ $peran->actor }}</td>
                             <td class="w3-list-info">
-                              <a href="{{ route('peran.create',$peran->id) }}" class="btn btn-warning btn-sm">CREATE</a>
+                              <a href="{{ route('peran.create', $peran->id) }}" class="btn btn-primary btn-sm">CREATE</a>
                               <a href="{{ route('peran.edit', $peran->id) }}" class="btn btn-warning btn-sm">EDIT</a>
+                              <form action="{{ route('peran.destroy', $peran->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                              </form>
                             </td>
                           </tr>
-                          @endforeach
+                          @empty
+                          <tr>
+                            <td colspan="3" class="text-center">No Perans available.</td>
+                          </tr>
+                          @endforelse
                         </tbody>
                       </table>
+                      <br>
                     </div>
-
-                    <!-- Tambahkan tombol Add di bawah tabel -->
-
-
+                    <a href="{{ route('peran.create', ['filmId' => $film->id]) }}" class="btn btn-primary">Create Peran</a>
                   </div>
                 </div>
               </div>
-              <div class="clearfix"> </div>
+              <div class="clearfix"></div>
             </div>
           </div>
 
@@ -104,14 +109,14 @@
                   <p class="author"><a href="#" class="author">{{ $film->year }}</a></p>
                   <p class="views" style="text-align: justify; margin-right: 10px">{{ $film->sinopsis }}</p>
                 </div>
-                <div class="clearfix"> </div>
+                <div class="clearfix"></div>
               </div>
             </div>
           @endforeach
         </div>
-        <div class="clearfix"> </div>
+        <div class="clearfix"></div>
       </div>
-      <!--body wrapper end-->
+
       <div class="w3_agile_banner_bottom_grid">
         <div id="owl-demo" class="owl-carousel owl-theme">
           @foreach ($filmByRelease as $filmRelease)
@@ -138,25 +143,10 @@
                     <div class="clearfix"></div>
                   </div>
                 </div>
+                @endforeach
                 @if ($filmRelease->year == now()->year)
                   <div class="ribben">
                     <p>NEW</p>
                   </div>
                 @endif
-              </div>
-            </div>
-          @endforeach
-        </div>
-      </div>
-    </div>
-  </div>
-@endsection
 
-@push('scripts')
-<script src="js/simplePlayer.js"></script>
-<script>
-  $("document").ready(function() {
-    $("#video").simplePlayer();
-  });
-</script>
-@endpush

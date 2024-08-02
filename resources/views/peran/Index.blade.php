@@ -4,6 +4,7 @@
     <div class="container">
         <h2>List of Perans</h2>
         <a href="{{ route('movies.show', $filmId) }}" class="btn btn-primary">Back to Film</a>
+        <form action=""></form>
         <table class="table">
             <thead>
                 <tr>
@@ -27,7 +28,11 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>
+<<<<<<< HEAD
                             </form>
+=======
+                            </form>                        
+>>>>>>> 1a0a43c (fix page movies-show)
                         </td>
                     </tr>
                 @endforeach
