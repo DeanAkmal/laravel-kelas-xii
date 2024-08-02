@@ -23,6 +23,11 @@
                         <td>{{ $peran->actor }}</td>
                         <td>
                             <a href="{{ route('peran.edit', $peran->id) }}" class="btn btn-warning">Edit</a>
+                            <form action="{{ route('peran.destroy', $peran->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
