@@ -26,7 +26,7 @@
             @method('POST')
             <div class="form-group">
               <label for="name">Name:</label>
-              <select class="form-control" id="cast" name="cast_id">
+              <select class="form-control" id="cast" name="cast_id" required>
                 @foreach($casts as $key => $value)
                     <option value="{{ $value->id}}">{{ $value->name}}</option>
                 @endforeach 
@@ -35,11 +35,11 @@
             <!-- Example of using $perans -->
             <div class="form-group">
                 <label for="peran">Peran:</label>
-                <input type="text" name="peran" id="name">
+                <input type="text" name="peran" id="name" required>
             </div>
             <div class="form-group">
               <label for="peran">Title:</label>
-              <select class="form-control" id="film" name="film_id">
+              <select class="form-control" id="film" name="film_id" required>
                   @foreach($films as $key => $value)
                       <option value="{{ $value->id }}">{{ $value->title }}</option>
                   @endforeach 
