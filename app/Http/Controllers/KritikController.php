@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kritik;
-use App\Http\Requests\StoreKritikRequest;
-use App\Http\Requests\UpdateKritikRequest;
+use App\Http\Requests\Request\StoreKritikRequest;
+use App\Http\Requests\Request\UpdateKritikRequest;
 
 class KritikController extends Controller
 {

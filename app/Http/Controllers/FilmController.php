@@ -8,8 +8,8 @@ use App\Models\{
     Kritik,
     Peran,
 };
-use App\Http\Requests\StoreFilmRequest;
-use App\Http\Requests\UpdateFilmRequest;
+use App\Http\Requests\Request\StoreFilmRequest;
+use App\Http\Requests\Request\UpdateFilmRequest;
 use Carbon\Carbon;
 
 class FilmController extends Controller

@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Request;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePeranRequest extends FormRequest
+class StoreFilmRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,9 +22,7 @@ class StorePeranRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'peran' => 'required',
-            'film_id' => 'required',
-            'cast_id' => 'required'
+            //
         ];
     }
 }

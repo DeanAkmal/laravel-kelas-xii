@@ -84,6 +84,9 @@ return [
 
     'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
 
+    App\Providers\FilmServiceProvider::class,
+    App\Providers\PeranServiceProvider::class,
+
     /*
     |--------------------------------------------------------------------------
     | Encryption Key
