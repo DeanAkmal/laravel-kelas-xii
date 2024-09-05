@@ -33,7 +33,7 @@ class FilmController extends Controller
      */
     public function create($film)
     {
-       
+
     }
 
     /**
@@ -49,7 +49,8 @@ class FilmController extends Controller
      */
     public function show(Film $film)
     {
-        //
+
+        
         $filmByGenre    = Film::select('id','title', 'poster','year', 'sinopsis')
                         ->where('genre_id', '=', $film->genre_id)
                         ->OrderBy('created_at', 'asc')

@@ -21,7 +21,7 @@ class CastController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -29,7 +29,17 @@ class CastController extends Controller
      */
     public function store(StoreCastRequest $request)
     {
-        //
+        $validatedata = $request->validate([
+            'name' => 'required|string|max:255',
+            'age'   => 'required|integer|min:1',
+            'bio'   => 'nullable|string',
+        ]);
+        $cast = Cast::create($validatedata);
+        return response()->json([
+            'succes' => true,
+            'data'   => $cast,
+            'message' => 'cast created successfully'
+        ], 201);
     }
 
     /**

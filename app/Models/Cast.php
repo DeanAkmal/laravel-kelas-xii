@@ -16,4 +16,4 @@ class Cast extends Model
         return $this->belongsTo(Cast::class);
     }
 }
-
+  

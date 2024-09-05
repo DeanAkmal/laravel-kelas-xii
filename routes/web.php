@@ -20,4 +20,5 @@ Route::get('/peran/{peran}/edit', [PeranController::class, 'edit'])->name('peran
 Route::put('/peran/{peran}', [PeranController::class, 'update'])->name('peran.update');
 Route::delete('/peran/{peran}', [PeranController::class, 'destroy'])->name('peran.destroy');
 
-
+//rute cast
+Route::post('/cast', [CastController::class, 'store']);
